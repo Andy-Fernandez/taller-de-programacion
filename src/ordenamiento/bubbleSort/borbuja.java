@@ -1,4 +1,4 @@
-package ordenamiento;
+package ordenamiento.bubbleSort;
 
 public class borbuja {
     public static void main(String[] arg ){
@@ -9,14 +9,18 @@ public class borbuja {
         v[4]=2;
         v[5]=8;
         System.out.println("Lista desordenada");
+        String s = "";
         for (int i = 1; i < v.length; i++) {
-            System.out.println(v[i]);
+            s += v[i] + " ";
         }
+        System.out.println(s);
         funcionordenar(v, 5);
         System.out.println("Lista ordenada");
+        s = "";
         for (int i = 1; i < v.length; i++) {
-            System.out.println(v[i]);
+            s += v[i] + " ";
         }
+        System.out.println(s);
     }
     static void funcionordenar (int[] v, int n ) {
         if (n==0) {
