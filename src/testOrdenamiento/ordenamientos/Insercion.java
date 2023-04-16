@@ -6,7 +6,7 @@ public class Insercion {
 		for (int i = 1; i < n; i++) {
 			tmp=v[i];
 			j=i-1;
-			while(v[j]>tmp && j>=0){
+			while(j>=0 && v[j]>tmp ){
 				v[j+1]=v[j];
 				j--;
 			}
