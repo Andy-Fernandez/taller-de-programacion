@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Ordenamientos {
+
     public static void main(String[] args) throws FileNotFoundException {
         // TODO Auto-generated method stub
         Scanner lee = new Scanner(new File(Ordenamientos.class.getResource("datos.txt").getPath()));
-
         //CARGANDO LOS DATOS
         int n = lee.nextInt();
-        System.out.println(n);
+        System.out.println("Cantidad de datos: " + n);
         int v[] = new int[n];
         while(lee.hasNext()) {
             for (int j = 0; j < n; j++) {
@@ -21,23 +21,64 @@ public class Ordenamientos {
             }
         }
 
-        //SE PROCEDE A MEDIR EL TIEMPO
-        long tiempoInicio = System.nanoTime();
-        burbuja(v,n);
-        long tiempoFinal = System.nanoTime();
+        int[] v1 = v.clone();
+        int[] v2 = v.clone();
+        int[] v3 = v.clone();
+        int[] v4 = v.clone();
+        int[] v5 = v.clone();
+        int[] v6 = v.clone();
 
-        //SE MUESTRA EL TIEMPO QUE TARDO EN ORDENAR
-        System.out.println("tiempo : " + (tiempoFinal - tiempoInicio));
+        //SE PROCEDE A MEDIR EL TIEMPO
+        System.out.println("Burbuja: ");
+        long tiempoInicio = System.nanoTime();
+        burbuja(v1,n);
+        long tiempoFinal = System.nanoTime();
+        double tiempoSegundos = (double) (tiempoFinal - tiempoInicio) / 1_000_000_000.0;
+        // Se muestra el tiempo que tardó en ordenar
+        System.out.println("tiempo : " + tiempoSegundos + " segundos");
+
+        System.out.println("Seleccion: ");
+        tiempoInicio = System.nanoTime();
+        seleccion(v2,n);
+        tiempoFinal = System.nanoTime();
+        tiempoSegundos = (double) (tiempoFinal - tiempoInicio) / 1_000_000_000.0;
+        // Se muestra el tiempo que tardó en ordenar
+        System.out.println("tiempo : " + tiempoSegundos + " segundos");
+
+        System.out.println("Insercion: ");
+        tiempoInicio = System.nanoTime();
+        insercion(v3,n);
+        tiempoFinal = System.nanoTime();
+        tiempoSegundos = (double) (tiempoFinal - tiempoInicio) / 1_000_000_000.0;
+        // Se muestra el tiempo que tardó en ordenar
+        System.out.println("tiempo : " + tiempoSegundos + " segundos");
+
+        System.out.println("Shell: ");
+        tiempoInicio = System.nanoTime();
+        ordenShell(v4);
+        tiempoFinal = System.nanoTime();
+        tiempoSegundos = (double) (tiempoFinal - tiempoInicio) / 1_000_000_000.0;
+        // Se muestra el tiempo que tardó en ordenar
+        System.out.println("tiempo : " + tiempoSegundos + " segundos");
+
+        System.out.println("Merge: ");
+        tiempoInicio = System.nanoTime();
+        ordenMerge(v5);
+        tiempoFinal = System.nanoTime();
+        tiempoSegundos = (double) (tiempoFinal - tiempoInicio) / 1_000_000_000.0;
+        // Se muestra el tiempo que tardó en ordenar
+        System.out.println("tiempo : " + tiempoSegundos + " segundos");
+
+        System.out.println("Quick: ");
+        tiempoInicio = System.nanoTime();
+        quickSort(v6,0,n-1);
+        tiempoFinal = System.nanoTime();
+        tiempoSegundos = (double) (tiempoFinal - tiempoInicio) / 1_000_000_000.0;
+        // Se muestra el tiempo que tardó en ordenar
+        System.out.println("tiempo : " + tiempoSegundos + " segundos");
     }
 
-    //TAREA:
-    //Debe de mostrar el tiempo en segundos, es decir convertir los nanosegundos a segundos
-
-    //for (int j = 0; j < n; j++) {
-    //	System.out.println(v[j]);
-    //}
-    //System.out.println("tiempo : " + (tiempoFinal - tiempoInicio));
-
+    // 1) BURBUJA
     static void burbuja(int[] v, int n) {
         for (int i = 0; i < n-1; i++) {
             for (int j = i+1; j < n; j++) {
@@ -49,22 +90,7 @@ public class Ordenamientos {
             }
         }
     }
-    // borbuja recursiva
-    static void funcionordenar (int[] v, int n ) {
-        if (n==0) {
-            return;
-        }else{
-            for (int i = 1; i < n; i++) {
-                if (v[i - 1] > v[i]) {
-                    int aux = v[i - 1];
-                    v[i - 1] = v[i];
-                    v[i] = aux;
-                }
-            }
-            funcionordenar(v, n-1);
-        }
-    }
-    // SELECCION
+    // 2) SELECCION
     static void seleccion(int v[], int n) {
         int k;
         int tmp;
@@ -81,20 +107,20 @@ public class Ordenamientos {
             v[i]=tmp;
         }
     }
-    // INSERCION
+    //3) INSERCION
     static void insercion(int v[], int n) {
         int tmp,j;
         for (int i = 1; i < n; i++) {
             tmp=v[i];
             j=i-1;
-            while(v[j]>tmp && j>=0){
-                v[j+1]=v[j];
+            while (j >= 0 && v[j] > tmp) {
+                v[j + 1] = v[j];
                 j--;
             }
             v[j+1]=tmp;
         }
     }
-    // Shell sort
+    //4) Shell sort
     public static void ordenShell(int [] v) {
         final int N = v.length;
         int incremento = N;
@@ -113,7 +139,7 @@ public class Ordenamientos {
             }
         } while (incremento > 1);
     }
-    // Quick Sort
+    //5) Quick Sort
     public static void quickSort(int[] v, int inicio, int fin) {
         if(inicio>=fin)return;
         int pivote=v[inicio];
@@ -136,7 +162,7 @@ public class Ordenamientos {
         quickSort(v, inicio, der-1);
         quickSort(v, der+1, fin);
     }
-    // Merge Sort
+    //6) Merge Sort
     public static void ordenMerge(int [] v) {
         int n = v.length;
         if (n <= 1) {
