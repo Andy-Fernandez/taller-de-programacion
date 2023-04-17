@@ -1,20 +1,15 @@
 package testOrdenamiento;
 
+import testOrdenamiento.ordenamientos.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import testOrdenamiento.ordenamientos.Burbuja;
-import testOrdenamiento.ordenamientos.Seleccion;
-import testOrdenamiento.ordenamientos.Insercion;
-import testOrdenamiento.ordenamientos.Shell;
-import testOrdenamiento.ordenamientos.Merge;
-import testOrdenamiento.ordenamientos.QuickSort;
-
-public class Ordenamientos {
+public class repetidos_10_000_desordenados {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner lee = new Scanner(new File(Ordenamientos.class.getResource("datos.txt").getPath()));
-        System.out.println(Ordenamientos.class.getResource("datos.txt").getPath());
+        Scanner lee = new Scanner(new File(Ordenamientos.class.getResource("datos/repetidos-10_000/datos1_Desordenados.txt").getPath()));
+        System.out.println("DATOS DESORDENADOS - 10.000 REPETIDOS");
         // CARGANDO LOS DATOS
         int n = lee.nextInt();
         System.out.println("Cantidad de datos: " + n);
