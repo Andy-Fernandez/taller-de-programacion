@@ -10,7 +10,6 @@ public class diferentes_100_000_ordenados {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner lee = new Scanner(new File(Ordenamientos.class.getResource("datos/diferentes-100_000/datos6_Ordenados.txt").getPath()));
         System.out.println("DATOS ORDENADOS - 100.000 DIFERENTES");
-        System.out.println("******* DEBERIAN SER 100.000 PERO SON 10.000 *******");
         // CARGANDO LOS DATOS
         int n = lee.nextInt();
         System.out.println("Cantidad de datos: " + n);
