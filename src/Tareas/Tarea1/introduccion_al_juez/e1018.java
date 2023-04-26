@@ -1,4 +1,4 @@
-package introduccion_al_juez;
+package Tareas.Tarea1.introduccion_al_juez;
 import java.util.Scanner;
 
 public class e1018 {
