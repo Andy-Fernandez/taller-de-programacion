@@ -1,16 +1,25 @@
     package Tareas.Tarea5;
     import java.lang.reflect.Array;
+    import java.util.Arrays;
 
     public class ejercicio5 {
         public static void main(String[] args) {
-            // Ejemplo de uso
-
-            String[] miVector3 = {"Hola", "Mundo", "Como", "Estas", "Hoy", "Esta", "Es", "La", "Tarea", "De", "143"};
-            System.out.println(mostrarVector(miVector3));
+            String[] miVector = {"Hola", "Mundo", "Como", "Estas", "Hoy", "Esta", "Es", "La", "Tarea", "De", "143"};
+            String x = "Hola";
+            System.out.println("Vector: " + mostrarVector(miVector));
+            int index = buscarCadena(miVector, x);
+            if (index == -1) {
+                System.out.println("La cadena " + x + " no se encuentra en el vector.");
+            } else {
+                System.out.println("La cadena " + x + " se encuentra en el índice " + index + " del vector.");
+            }
         }
 
-        //5. Dado un vector de cadenas, buscar la cadena x.
-
+        // Función para buscar una cadena en un vector
+        public static int buscarCadena(String[] vector, String x) {
+            int index = Arrays.asList(vector).indexOf(x);
+            return index;
+        }
 
         // Función para mostrar un vector
         public static String mostrarVector(Object vector) {
