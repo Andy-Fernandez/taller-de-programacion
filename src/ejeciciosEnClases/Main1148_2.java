@@ -13,7 +13,9 @@ public class Main1148_2 {
             }
             int costo = 0, total = 0;
             while (cp.size() > 1) { // Cambiar la condición aquí
-                costo=  cp.poll() + cp.poll();
+                int a = cp.poll();
+                int b = cp.poll();
+                costo = a + b;
                 total = total + costo;
                 cp.offer(costo); // Agregar el costo de nuevo a la PriorityQueue
             }

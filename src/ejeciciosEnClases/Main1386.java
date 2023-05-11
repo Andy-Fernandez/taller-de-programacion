@@ -1,4 +1,4 @@
-package ejeciciosEnClases;
+package ejerciciosEnClases;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Collections;
@@ -16,7 +16,9 @@ public class Main1386 {
                     cp.offer(x);
                     break;
                 case 'A':
-                    System.out.println(cp.peek());
+                    if (!cp.isEmpty())
+                        System.out.println(cp.peek());
+                    else System.out.println("Error");
                     break;
                 case 'R':
                     if (!cp.isEmpty())
@@ -24,12 +26,20 @@ public class Main1386 {
                     else System.out.println("Error");
                     break;
                 case 'I':
-                    x = lee.nextInt();
-                    cp.offer(cp.poll() + x);
+                    if (!cp.isEmpty()) {
+                        x = lee.nextInt();
+                        cp.offer(cp.poll() + x);
+                    } else {
+                        System.out.println("Error");
+                    }
                     break;
                 case 'D':
-                    x = lee.nextInt();
-                    cp.offer(cp.poll() - x);
+                    if (!cp.isEmpty()) {
+                        x = lee.nextInt();
+                        cp.offer(cp.poll() - x);
+                    } else {
+                        System.out.println("Error");
+                    }
                     break;
             }
             op = lee.next().charAt(0);
