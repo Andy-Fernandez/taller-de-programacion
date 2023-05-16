@@ -1,7 +1,7 @@
 package estructuras;
 
 import java.util.Stack;
-public class clasePila {
+public class Manejo_Pila {
     public static void main(String[] args) {
         Stack<String> miPila = new Stack<>();
 
