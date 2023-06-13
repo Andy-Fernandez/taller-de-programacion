@@ -1,0 +1,21 @@
+# Archivos y directorios generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpeta de dependencias o bibliotecas
+/node_modules
+
+# Archivos de compilación
+/dist
+/build
+
+# Entorno de desarrollo
+.env
+
+# Archivos de registro o salida
+*.log
+
+# Archivos temporales
+*.tmp
+
+# Otros archivos o directorios que desees ignorar
