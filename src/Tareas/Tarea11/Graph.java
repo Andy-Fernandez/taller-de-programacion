@@ -23,6 +23,28 @@ class Graph {
     public int getVertices() {
         return numVertices;
     }
+    public boolean esGrafoDesplazado(Graph other, int k) {
+        if (this.numVertices + k != other.getVertices()) {
+            return false;
+        }
+
+        for (int i = 0; i < this.numVertices; i++) {
+            LinkedList<Integer> thisList = this.adjLists[i];
+            LinkedList<Integer> otherList = other.getAdjLists()[i + k];
+
+            if (thisList.size() != otherList.size()) {
+                return false;
+            }
+
+            for (int j = 0; j < thisList.size(); j++) {
+                if (thisList.get(j) + k != otherList.get(j)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }
 class DFS {
     private boolean visited[];
