@@ -9,7 +9,7 @@ public class Main {
 		a.insertaArista(0, 2);
 		a.insertaArista(0, 3);
 		a.insertaArista(1, 2);
-		a.insertaArista(2, 3);
+		a.insertaArista(2,  3);
 		System.out.println("INCISO A");
 		a.imprimeGrafo();
 		a.imprimeListaAdyacencia();
