@@ -13,6 +13,8 @@ public class Main {
 		System.out.println("INCISO A");
 		a.imprimeGrafo();
 		a.imprimeListaAdyacencia();
+		a.recorridoBFS(0); // Recorrido BFS desde el vértice 1
+		a.recorridoDFS(0);
 
 		// Inciso B
 		GrafoMatrizAdyacencia b = new GrafoMatrizAdyacencia(6, true);
@@ -24,6 +26,8 @@ public class Main {
 		System.out.println("\nINCISO B");
 		b.imprimeGrafo();
 		b.imprimeListaAdyacencia();
+		b.recorridoBFS(0); // Recorrido BFS desde el vértice 1
+		b.recorridoDFS(0);
 
 		// Inciso C
 		GrafoMatrizAdyacencia c = new GrafoMatrizAdyacencia(6, true);
@@ -39,6 +43,8 @@ public class Main {
 		System.out.println("\nINCISO C");
 		c.imprimeGrafo();
 		c.imprimeListaAdyacencia();
+		c.recorridoBFS(0); // Recorrido BFS desde el vértice 1
+		c.recorridoDFS(0);
 
 		// Inciso D
 		GrafoMatrizAdyacencia d = new GrafoMatrizAdyacencia(6, true);
@@ -54,6 +60,8 @@ public class Main {
 		System.out.println("\nINCISO D");
 		d.imprimeGrafo();
 		d.imprimeListaAdyacencia();
+		d.recorridoBFS(0); // Recorrido BFS desde el vértice 1
+		d.recorridoDFS(0);
 
 		// Inciso E
 		GrafoMatrizAdyacencia e = new GrafoMatrizAdyacencia(10, true);
@@ -73,6 +81,8 @@ public class Main {
 		System.out.println("\nINCISO E");
 		e.imprimeGrafo();
 		e.imprimeListaAdyacencia();
+		e.recorridoBFS(0); // Recorrido BFS desde el vértice 1
+		e.recorridoDFS(0);
 
 		// Inciso F
 		GrafoMatrizAdyacencia f = new GrafoMatrizAdyacencia(10, true);
@@ -106,5 +116,7 @@ public class Main {
 		System.out.println("\nINCISO F");
 		f.imprimeGrafoPeso();
 		f.imprimeListaAdyacenciaPeso();
+		f.recorridoBFS(0); // Recorrido BFS desde el vértice 1
+		f.recorridoDFS(0);
 	}
 }

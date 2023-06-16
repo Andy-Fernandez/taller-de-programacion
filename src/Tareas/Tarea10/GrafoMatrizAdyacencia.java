@@ -1,4 +1,7 @@
 package Tareas.Tarea10;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class GrafoMatrizAdyacencia {
     private boolean dirigido;
@@ -119,8 +122,50 @@ public class GrafoMatrizAdyacencia {
         }
         return contador;
     }
+    public void recorridoBFS(int verticeInicial) {
+        boolean[] visitado = new boolean[numVertices];
+        Queue<Integer> cola = new LinkedList<>();
 
+        visitado[verticeInicial] = true;
+        cola.offer(verticeInicial);
 
+        System.out.println("Recorrido BFS desde el vértice " + (verticeInicial + 1) + ":");
+        while (!cola.isEmpty()) {
+            int verticeActual = cola.poll();
+            System.out.print((verticeActual + 1) + " ");
+
+            for (int i = 0; i < numVertices; i++) {
+                if (matrizAdyacencia[verticeActual][i] && !visitado[i]) {
+                    visitado[i] = true;
+                    cola.offer(i);
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    // Recorrido DFS (Depth-First Search)
+    public void recorridoDFS(int verticeInicial) {
+        boolean[] visitado = new boolean[numVertices];
+        Stack<Integer> pila = new Stack<>();
+
+        visitado[verticeInicial] = true;
+        pila.push(verticeInicial);
+
+        System.out.println("Recorrido DFS desde el vértice " + (verticeInicial + 1) + ":");
+        while (!pila.isEmpty()) {
+            int verticeActual = pila.pop();
+            System.out.print((verticeActual + 1) + " ");
+
+            for (int i = 0; i < numVertices; i++) {
+                if (matrizAdyacencia[verticeActual][i] && !visitado[i]) {
+                    visitado[i] = true;
+                    pila.push(i);
+                }
+            }
+        }
+        System.out.println();
+    }
     public int grado(int vertice) {
         return ((gradoInterno(vertice) + gradoExterno(vertice)) / 2);
     }
